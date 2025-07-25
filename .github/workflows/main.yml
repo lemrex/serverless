@@ -43,8 +43,8 @@ jobs:
           file credentials
 
           
-      - name: Package Serverless Function
-        run: ls  ~/.fg
+      - name: install serverless plugin
+        run: serverless plugin install -n serverless-huawei-functions
 
       - name: Package Serverless Function
         run: serverless package
