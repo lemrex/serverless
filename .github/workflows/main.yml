@@ -1,0 +1,59 @@
+name: Deploy Serverless Function to OBS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    env:
+      OBS_BUCKET: my-function-bucket
+      OBS_OBJECT_KEY: functions/datetime-api.zip
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Serverless Framework
+        run: npm install -g serverless
+
+      - name: Install project dependencies
+        run: npm install
+
+        
+      - name: Set up Huawei credentials file
+        run: |
+          mkdir -p ~/.fg
+          echo "[default]" > ~/.fg/credentials
+          echo "huaweicloud_access_key = ${{ secrets.ACCESSKEY }}" >> ~/.fg/credentials
+          echo "huaweicloud_secret_key = ${{ secrets.SECRETACCESSKEY }}" >> ~/.fg/credentials
+
+
+      - name: Package Serverless Function
+        run: serverless package
+
+
+      - name: Package Serverless Function
+        run: serverless deploy
+
+      - name: Sync files/folder to Huawei Cloud OBS bucket
+        uses: lemrex/Sync-OBS@v1.0.0
+        with:
+          accessKey: ${{  secrets.ACCESSKEY }}
+          secretKey: ${{ secrets.SECRETACCESSKEY }}
+          region:    af-south-1
+          obsBucket: fg-serverless
+          localPath: .serverless/datetime-api.zip  # Local directory to sync
+        
+
+      - name: Package Serverless Function
+        run: serverless deploy
+          
