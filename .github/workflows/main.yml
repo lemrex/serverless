@@ -36,9 +36,11 @@ jobs:
           echo "huaweicloud_secret_key = ${{ secrets.SECRETACCESSKEY }}" >> credentials 
           ls
           mkdir -p ~/.fg
-          echo "huaweicloud_access_key = ${{ secrets.ACCESSKEY }}" >> ~/.fg/credentials
-          echo "huaweicloud_secret_key = ${{ secrets.SECRETACCESSKEY }}" >> ~/.fg/credentials
+          echo "access_key_id = ${{ secrets.ACCESSKEY }}" >> ~/.fg/credentials
+          echo "secret_access_key = ${{ secrets.SECRETACCESSKEY }}" >> ~/.fg/credentials
           ls
+          cat credentials
+          file credentials
 
           
       - name: Package Serverless Function
