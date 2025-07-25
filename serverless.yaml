@@ -1,0 +1,35 @@
+# org: lemrex
+
+# app: demo-api
+
+service: datetime-api2 
+frameworkVersion: "3"
+useDotenv: true
+
+
+provider: 
+  name: huawei
+  runtime: Node.js18.15
+  stage: ${opt:stage, 'qa'}
+  credentials: credentials 
+  region: af-south-1 
+
+
+package:
+  artifact: .serverless/datetime-api.zip
+
+functions:
+  getDateTime2:
+    handler: src/index.handler
+    description: Huawei Serverless Cloud Function
+    environment:
+      variables:
+        ENV_FIRST: env1
+        ENV_SECOND: env2
+    events:
+      - http:
+          path: datetime
+          method: get
+
+plugins:
+  - serverless-huawei-functions
