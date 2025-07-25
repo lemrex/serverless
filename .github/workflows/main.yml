@@ -31,11 +31,18 @@ jobs:
         
       - name: Set up Huawei credentials file
         run: |
+          ls
+          echo "huaweicloud_access_key = ${{ secrets.ACCESSKEY }}" >> credentials
+          echo "huaweicloud_secret_key = ${{ secrets.SECRETACCESSKEY }}" >> credentials 
+          ls
           mkdir -p ~/.fg
-          echo "[default]" > ~/.fg/credentials
           echo "huaweicloud_access_key = ${{ secrets.ACCESSKEY }}" >> ~/.fg/credentials
           echo "huaweicloud_secret_key = ${{ secrets.SECRETACCESSKEY }}" >> ~/.fg/credentials
+          ls
 
+          
+      - name: Package Serverless Function
+        run: ls  ~/.fg
 
       - name: Package Serverless Function
         run: serverless package
