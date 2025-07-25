@@ -32,8 +32,8 @@ jobs:
       - name: Set up Huawei credentials file
         run: |
           ls
-          echo "huaweicloud_access_key = ${{ secrets.ACCESSKEY }}" >> credentials
-          echo "huaweicloud_secret_key = ${{ secrets.SECRETACCESSKEY }}" >> credentials 
+          echo "access_key_id = ${{ secrets.ACCESSKEY }}" >> credentials
+          echo "secret_access_key = ${{ secrets.SECRETACCESSKEY }}" >> credentials 
           ls
           mkdir -p ~/.fg
           echo "access_key_id = ${{ secrets.ACCESSKEY }}" >> ~/.fg/credentials
