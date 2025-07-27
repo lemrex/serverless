@@ -34,13 +34,18 @@ jobs:
           ls
           echo "access_key_id = ${{ secrets.ACCESSKEY }}" >> credentials
           echo "secret_access_key = ${{ secrets.SECRETACCESSKEY }}" >> credentials 
+          echo "SERVERLESS_ACCESS_KEY = ${{ secrets.SERVERLESS_ACCESS_KEY }}" >> credentials
+          
           ls
           mkdir -p ~/.fg
           echo "access_key_id = ${{ secrets.ACCESSKEY }}" >> ~/.fg/credentials
           echo "secret_access_key = ${{ secrets.SECRETACCESSKEY }}" >> ~/.fg/credentials
+          echo "SERVERLESS_ACCESS_KEY = ${{ secrets.SERVERLESS_ACCESS_KEY }}" >> credentials
           ls
           cat credentials
           file credentials
+          export SERVERLESS_ACCESS_KEY=${{ secrets.SERVERLESS_ACCESS_KEY }}
+
 
           
       - name: install serverless plugin
