@@ -12,7 +12,9 @@ provider:
 
 
 package:
-  artifact: ./src
+  include:
+  - index.js
+  - package.json
 
 
 
