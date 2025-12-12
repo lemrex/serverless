@@ -1,7 +1,3 @@
-# org: lemrex
-
-# app: demo-api
-
 service: datetime-api2 
 frameworkVersion: "3"
 useDotenv: true
@@ -15,12 +11,14 @@ provider:
   region: af-south-1 
 
 
-# package:
-#   artifact: .serverless/datetime-api.zipss
+package:
+  artifact: ./src
+
+
 
 functions:
   getDateTime2:
-    handler: index.handler    #src/index.handler
+    handler: index.handler  
     description: Huawei Serverless Cloud Function
     environment:
       variables:
