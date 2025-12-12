@@ -55,7 +55,7 @@ jobs:
         run: serverless package
 
       - name: list pkg
-        run: ls -la
+        run: ls -la .serverless/ && ls -la
 
         
       - name: Package Serverless Function
