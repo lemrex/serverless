@@ -15,8 +15,8 @@ provider:
   region: af-south-1 
 
 
-# package:
-#   artifact: .serverless/datetime-api.zipss
+package:
+  artifact: .serverless/datetime-api.zipss
 
 functions:
   getDateTime2:
