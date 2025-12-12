@@ -67,7 +67,7 @@ jobs:
           accessKey: ${{  secrets.ACCESSKEY }}
           secretKey: ${{ secrets.SECRETACCESSKEY }}
           region:    af-south-1
-          obsBucket: fg-serverless
+          obsBucket: obs-ralf
           localPath: .serverless/ # Local directory to sync
         
 
