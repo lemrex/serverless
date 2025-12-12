@@ -11,16 +11,12 @@ provider:
   region: af-south-1 
 
 
-package:
-  include:
-  - index.js
-  - package.json
 
 
 
 functions:
   getDateTime2:
-    handler: index.handler  
+    handler: src/index.handler  
     description: Huawei Serverless Cloud Function
     environment:
       variables:
