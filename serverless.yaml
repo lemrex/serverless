@@ -11,6 +11,10 @@ provider:
   region: af-south-1 
 
 
+package:
+  individually: true
+  include:
+    - "**/*"
 
 
 
