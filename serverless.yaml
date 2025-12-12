@@ -16,7 +16,7 @@ provider:
 
 
 # package:
-#   artifact: .serverless/datetime-api.zips
+#   artifact: .serverless/datetime-api.zipss
 
 functions:
   getDateTime2:
