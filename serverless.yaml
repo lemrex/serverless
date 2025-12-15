@@ -36,4 +36,4 @@ functions:
 plugins:
   - serverless-huawei-functions
 
-current serverless.yaml
+
