@@ -59,8 +59,7 @@ jobs:
 
         
       - name: Package Serverless Function
-        run: serverless deploy --package ./datetime-api2.zip
-
+        run: serverless deploy --package .serverless/datetime-api2.zip
 
       - name: Sync files/folder to Huawei Cloud OBS bucket
         uses: lemrex/Sync-OBS@v1.0.0
