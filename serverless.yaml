@@ -15,7 +15,7 @@ package:
   patterns:
     - index.js
     - package.json
-    - '!**'
+    - '!.github/**'
 
 
 functions:
