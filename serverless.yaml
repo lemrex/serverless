@@ -10,8 +10,12 @@ provider:
   credentials: credentials 
   region: af-south-1 
 
-
-
+package:
+  individually: true
+  patterns:
+    - index.js
+    - package.json
+    - '!**'
 
 
 functions:
