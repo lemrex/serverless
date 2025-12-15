@@ -1,28 +1,24 @@
-service: datetime-api2 
+service: datetime-api2
 frameworkVersion: "3"
 useDotenv: true
 
-
-provider: 
+provider:
   name: huawei
   runtime: Node.js18.15
   stage: ${opt:stage, 'qa'}
-  credentials: credentials 
-  region: af-south-1 
+  region: af-south-1
+  credentials: credentials
 
 package:
   individually: true
   patterns:
+    - '!**'
     - index.js
     - package.json
-    - '!.github/**'
-
 
 functions:
   getDateTime2:
-    handler: ./index.handler  
-    code:
-     codeUri: .
+    handler: index.handler
     description: Huawei Serverless Cloud Function
     environment:
       variables:
