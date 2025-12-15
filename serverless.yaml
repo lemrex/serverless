@@ -16,7 +16,7 @@ provider:
 
 functions:
   getDateTime2:
-    handler: index.handler  
+    handler: ./index.handler  
     code:
      codeUri: .
     description: Huawei Serverless Cloud Function
